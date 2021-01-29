@@ -3,7 +3,7 @@ import { device } from '../../styles/css/utils.styles'
 
 // MAIN TYPOGRAPHY STYLES
 // set globalScale in fontVars.js
-export const P = styled.p`
+export const PStyles = css`
 	font-family: var(--fontMain);
 	font-weight: 400;
 	letter-spacing: 0.07em;
@@ -33,7 +33,7 @@ export const P = styled.p`
 	}
 `
 
-export const H1 = styled.h1`
+export const H1Styles = css`
 	font-family: var(--fontHeading);
 	letter-spacing: 0.09em;
 	white-space: nowrap;
@@ -61,8 +61,13 @@ export const H1 = styled.h1`
 		margin-bottom: 0.5rem;
 	}
 `
-
 // EXTENDED TYPOGRAPHY STYLES
+export const P = styled.p`
+	${PStyles}
+`
+export const H1 = styled.h1`
+	${H1Styles}
+`
 
 export const AuthorText = styled(P)`
 	font-weight: 200;
@@ -83,7 +88,6 @@ export const AuthorText = styled(P)`
 		margin-bottom: 0.5rem;
 	}
 `
-
 export const TComp = {
 	P,
 	H1,

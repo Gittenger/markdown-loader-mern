@@ -1,0 +1,10 @@
+need to create a function to add md to db
+
+takes an array consisting of my local copy of all 
+files which i want to upload.
+
+could do an addOne and an addMany to allow for adding one if needed.
+
+in addMany, for each file, query db for some YAML metadata
+if match, perform update command passing in the MD string
+if no match, create entry instead
