@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
+const dotenv = require('dotenv')
 const fs = require('fs')
 const path = require('path')
-const dotenv = require('dotenv')
 
 const Markdown = require('./models/markdownSchema')
 
@@ -31,10 +31,27 @@ const importData = async () => {
 	try {
 		await Markdown.insertMany(mds)
 		console.log('Data successfully loaded')
-		process.exit()
+		process.exit(0)
 	} catch (err) {
 		console.log(err)
 	}
 }
 
-importData()
+const deleteData = async () => {
+	try {
+		await Markdown.deleteMany()
+		console.log('Data successfully deleted')
+		process.exit(0)
+	} catch (err) {
+		console.log(err)
+	}
+}
+
+if (process.argv[2] === '--import') {
+	importData()
+} else if (process.argv[2] === '--delete') {
+	deleteData()
+} else {
+	console.log('error: expected argument --import or --delete')
+	process.exit(1)
+}
