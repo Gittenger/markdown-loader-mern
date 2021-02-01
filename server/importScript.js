@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
+const metadataParser = require('markdown-yaml-metadata-parser')
 const fs = require('fs')
 const path = require('path')
 
@@ -23,8 +24,10 @@ mongoose
 // read files
 const mds = []
 fs.readdirSync(path.join(__dirname, 'assets')).forEach(file => {
-	const md = fs.readFileSync(path.join(__dirname, 'assets', file), 'utf-8')
-	mds.push({ text: md })
+	const doc = fs.readFileSync(path.join(__dirname, 'assets', file), 'utf-8')
+	const result = metadataParser(doc)
+
+	mds.push({ text: result.content, ...result.metadata })
 })
 
 const importData = async () => {

@@ -5,6 +5,18 @@ const markdownSchema = new mongoose.Schema({
 		type: String,
 		required: [true, 'Text is a required field'],
 	},
+	title: {
+		type: String,
+		required: [true, 'Title is required in metadata'],
+	},
+	excerpt: {
+		type: String,
+		required: [true, 'Must have an excerpt in metadata'],
+	},
+	date: {
+		type: Date,
+		required: [true, 'Date is required'],
+	},
 	createdAt: {
 		type: Date,
 		default: Date.now(),

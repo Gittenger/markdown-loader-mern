@@ -1,3 +1,9 @@
+---
+title: Markdown Number One
+excerpt: This is an excerpt of the article.
+date: October 7, 2019
+---
+
 <!-- Headings -->
 
 # Heading 1
@@ -44,7 +50,7 @@ _This text is italic._
 
 [my github](https://www.github.com/Gittenger)
 
-[my github -- hover over me](https://www.github.com/Gittenger "Hover title -- John Pittenger")
+[my github -- hover over me](https://www.github.com/Gittenger 'Hover title -- John Pittenger')
 
 <!-- UL -->
 
@@ -82,7 +88,7 @@ npm start
 
 ```javascript
 function add(num1, num2) {
-  return num1 + num2;
+	return num1 + num2
 }
 ```
 
