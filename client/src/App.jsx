@@ -22,11 +22,13 @@ function App() {
 	}
 
 	const getData = () => {
-		axios.get('http://localhost:5000/doc?id=md3').then(res => {
-			console.log(res)
-			const md = res.data.data
-			setMdData(md)
-		})
+		axios
+			.get(`http://localhost:5000/doc?id=6017770643b446288033d79e`)
+			.then(res => {
+				console.log(res)
+				const md = res.data.data.text
+				setMdData(md)
+			})
 	}
 
 	const renderers = {

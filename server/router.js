@@ -1,5 +1,5 @@
 const express = require('express')
-const controllers = require('./controller')
+const controllers = require('./controllers/controller')
 
 const { getFile } = controllers
 
