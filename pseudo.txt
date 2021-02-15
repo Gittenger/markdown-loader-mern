@@ -2,7 +2,3 @@ when client starts,
 perform getAll 
 return only metadata
 index the page/cards/tiles with metadata
-
-on click link, findOneById using dynamic id
-add 'data-value' to button. when clicked, dataset should 
-be accessible (or getAttribute('data-value'))

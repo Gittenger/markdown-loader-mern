@@ -90,6 +90,12 @@ export const H2Styles = css`
 		margin-bottom: 0.5rem;
 	}
 `
+export const CodeStyles = css`
+	background: ${({ theme: { colors } }) => colors.secondary};
+	color: ${({ theme: { colors } }) => colors.primary};
+	font-family: var(--fontCode);
+	padding: 0.4rem;
+`
 // EXTENDED TYPOGRAPHY STYLES
 export const P = styled.p`
 	${PStyles}
@@ -100,6 +106,10 @@ export const H1 = styled.h1`
 export const H2 = styled.h2`
 	${H2Styles}
 `
+export const Code = styled.code`
+	${CodeStyles}
+`
+
 export const AuthorText = styled(P)`
 	font-weight: 200;
 	--scale: 0.8;
@@ -123,6 +133,7 @@ export const TComp = {
 	P,
 	H1,
 	H2,
+	Code,
 	AuthorText,
 }
 

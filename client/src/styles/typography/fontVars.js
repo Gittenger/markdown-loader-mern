@@ -1,12 +1,13 @@
 import { css } from 'styled-components'
 
 import fontsIndex from '../../assets/fonts/index'
-const { yuseiMagic, oswald, montserrat } = fontsIndex
+const { firaCode, oswald, montserrat } = fontsIndex
 
 export const fontVars = {
 	fontMain: css`
-		--fontMain: '${yuseiMagic.name}', sans-serif;
+		--fontMain: '${montserrat.name}', sans-serif;
 		--fontHeading: '${oswald.name}', sans-serif;
+		--fontCode: '${firaCode.name}', monospace;
 		--globalScale: 1;
 	`,
 }
