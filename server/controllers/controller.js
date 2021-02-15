@@ -1,6 +1,3 @@
-const getMarkdown = require('../utils/getMarkdown')
-const fs = require('fs')
-const path = require('path')
 const Markdown = require('../models/markdownSchema')
 
 exports.getFile = async (req, res) => {

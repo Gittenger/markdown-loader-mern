@@ -7,13 +7,8 @@ import {
 } from './components/typography/typography.components.js'
 
 const sharedStyles = css`
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		color: ${({ theme: { colors } }) => colors.secondary};
+	p {
+		margin-left: 0.7rem;
 	}
 `
 
@@ -22,7 +17,7 @@ export const MyMarkdownStyles = styled.div`
 
 	padding: 2.5rem;
 
-	p {
-		${PStyles}
+	p + h2 {
+		margin-top: 2.5rem;
 	}
 `

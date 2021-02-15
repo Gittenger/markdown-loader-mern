@@ -61,6 +61,35 @@ export const H1Styles = css`
 		margin-bottom: 0.5rem;
 	}
 `
+
+export const H2Styles = css`
+	font-family: var(--fontHeading);
+	letter-spacing: 0.09em;
+	white-space: nowrap;
+	color: ${({ theme: { colors } }) => colors.secondary};
+	transition: color 0.3s;
+
+	--scale: 1;
+	font-size: calc((var(--scale) * 3rem) * var(--globalScale));
+	margin-bottom: 1.4rem;
+
+	${device.tabletLand} {
+		font-size: calc((var(--scale) * 2.5rem) * var(--globalScale));
+		letter-spacing: 0.07em;
+		margin-bottom: 1.3rem;
+	}
+	${device.tabletS} {
+		margin-bottom: 1.2rem;
+	}
+	${device.mobileM} {
+		font-size: calc((var(--scale) * 2.1rem) * var(--globalScale));
+		margin-bottom: 0.9rem;
+	}
+	${device.mobileS} {
+		font-size: calc((var(--scale) * 1.9rem) * var(--globalScale));
+		margin-bottom: 0.5rem;
+	}
+`
 // EXTENDED TYPOGRAPHY STYLES
 export const P = styled.p`
 	${PStyles}
@@ -68,7 +97,9 @@ export const P = styled.p`
 export const H1 = styled.h1`
 	${H1Styles}
 `
-
+export const H2 = styled.h2`
+	${H2Styles}
+`
 export const AuthorText = styled(P)`
 	font-weight: 200;
 	--scale: 0.8;
@@ -91,6 +122,7 @@ export const AuthorText = styled(P)`
 export const TComp = {
 	P,
 	H1,
+	H2,
 	AuthorText,
 }
 

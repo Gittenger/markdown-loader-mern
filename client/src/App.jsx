@@ -12,11 +12,11 @@ import { MyMarkdownStyles } from './MyMarkdownStyles.styles'
 function App() {
 	const [theme, setTheme] = useState('light')
 	const {
-		TComp: { P, H1, AuthorText },
+		TComp: { P, H1, H2, AuthorText },
 	} = CIndex
 
 	const [mdData, setMdData] = useState({
-		text: '',
+		content: '',
 		title: 'Not loaded yet',
 		date: 'July 20, 2010 00:10:11 GMT+00:00',
 		excerpt: '',
@@ -28,7 +28,7 @@ function App() {
 
 	const getData = () => {
 		axios
-			.get(`http://localhost:5000/doc?id=60178c5ea4272facf7e08414`)
+			.get(`http://localhost:5000/doc?id=602a01da82d4c8b3759b7c31`)
 			.then(res => {
 				console.log(res)
 				const data = res.data.data
@@ -38,25 +38,29 @@ function App() {
 
 	const renderers = {
 		paragraph: P,
-		heading: props => (props.level === 1 ? <H1 {...props} /> : 'h5'),
+		heading: props =>
+			props.level === 1 ? (
+				<H1 {...props} />
+			) : props.level === 2 ? (
+				<H2 {...props} />
+			) : (
+				React.createElement('h3', props, props.children)
+			),
 	}
 
-	const { text, title, excerpt, date } = mdData
+	const { content, title, excerpt, date } = mdData
 
 	return (
 		<ThemeProvider theme={theme === 'light' ? themeLight : themeDark}>
 			<GlobalStyles />
 			<div style={{ height: '15rem' }}></div>
 			<button onClick={changeTheme}>CHANGE THEME</button>
-			<P>Here is some sample text. Hit the button to change the theme.</P>
 			<H1>{title}</H1>
-			<P>{excerpt}</P>
 			<AuthorText>{new Date(date).toDateString()}</AuthorText>
-
-			<button onClick={getData}>Show markdown</button>
 			<MyMarkdownStyles>
-				<ReactMarkdown renderers={renderers} children={text} />
+				<ReactMarkdown renderers={renderers} children={content} />
 			</MyMarkdownStyles>
+			<button onClick={getData}>Show markdown</button>
 		</ThemeProvider>
 	)
 }

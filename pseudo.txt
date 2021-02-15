@@ -1,10 +1,8 @@
-need to create a function to add md to db
+when client starts,
+perform getAll 
+return only metadata
+index the page/cards/tiles with metadata
 
-takes an array consisting of my local copy of all 
-files which i want to upload.
-
-could do an addOne and an addMany to allow for adding one if needed.
-
-in addMany, for each file, query db for some YAML metadata
-if match, perform update command passing in the MD string
-if no match, create entry instead
+on click link, findOneById using dynamic id
+add 'data-value' to button. when clicked, dataset should 
+be accessible (or getAttribute('data-value'))
