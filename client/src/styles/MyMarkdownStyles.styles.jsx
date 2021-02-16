@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { device, cssIndex } from './css/utils.styles.js'
 
 export const MyMarkdownStyles = styled.div`
+	/* Top Level */
+
 	width: 100%;
 	padding: 2.5rem 19vw;
 
@@ -21,6 +23,8 @@ export const MyMarkdownStyles = styled.div`
 	${device.tabletM} {
 		padding: 2.5rem 2rem 2.5rem 1.7rem;
 	}
+
+	/* Components */
 
 	p {
 		margin-left: 0.7rem;
