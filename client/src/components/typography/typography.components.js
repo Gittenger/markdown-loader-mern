@@ -6,8 +6,8 @@ import { device } from '../../styles/css/utils.styles'
 export const PStyles = css`
 	font-family: var(--fontMain);
 	font-weight: 400;
-	letter-spacing: 0.07em;
-	margin-bottom: 0.9rem;
+	letter-spacing: 0.09em;
+	margin-bottom: 2.3rem;
 	color: ${({ theme: { colors } }) => colors.secondary};
 	transition: color 0.3s;
 
@@ -17,25 +17,25 @@ export const PStyles = css`
 
 	${device.tabletLand} {
 		font-size: calc((var(--scale) * 2.2rem) * var(--globalScale));
-		letter-spacing: 0.05em;
+		letter-spacing: 0.07em;
 	}
 	${device.tabletS} {
 		font-size: calc((var(--scale) * 1.8rem) * var(--globalScale));
-		line-height: 1.8;
+		line-height: 1.9;
 	}
 	${device.mobileM} {
 		font-size: calc((var(--scale) * 1.7rem) * var(--globalScale));
-		line-height: 1.7;
+		line-height: 1.8;
 	}
 	${device.mobileS} {
 		font-size: calc((var(--scale) * 1.5rem) * var(--globalScale));
-		line-height: 1.6;
+		line-height: 1.7;
 	}
 `
 
 export const H1Styles = css`
 	font-family: var(--fontHeading);
-	letter-spacing: 0.09em;
+	letter-spacing: 0.14em;
 	white-space: nowrap;
 	color: ${({ theme: { colors } }) => colors.secondary};
 	transition: color 0.3s;
@@ -46,7 +46,7 @@ export const H1Styles = css`
 
 	${device.tabletLand} {
 		font-size: calc((var(--scale) * 3rem) * var(--globalScale));
-		letter-spacing: 0.07em;
+		letter-spacing: 0.09em;
 		margin-bottom: 1.3rem;
 	}
 	${device.tabletS} {
@@ -64,7 +64,7 @@ export const H1Styles = css`
 
 export const H2Styles = css`
 	font-family: var(--fontHeading);
-	letter-spacing: 0.09em;
+	letter-spacing: 0.14em;
 	white-space: nowrap;
 	color: ${({ theme: { colors } }) => colors.secondary};
 	transition: color 0.3s;
@@ -75,7 +75,7 @@ export const H2Styles = css`
 
 	${device.tabletLand} {
 		font-size: calc((var(--scale) * 2.5rem) * var(--globalScale));
-		letter-spacing: 0.07em;
+		letter-spacing: 0.09em;
 		margin-bottom: 1.3rem;
 	}
 	${device.tabletS} {
@@ -83,7 +83,7 @@ export const H2Styles = css`
 	}
 	${device.mobileM} {
 		font-size: calc((var(--scale) * 2.1rem) * var(--globalScale));
-		margin-bottom: 0.9rem;
+		margin-bottom: 0.7rem;
 	}
 	${device.mobileS} {
 		font-size: calc((var(--scale) * 1.9rem) * var(--globalScale));
@@ -91,10 +91,12 @@ export const H2Styles = css`
 	}
 `
 export const CodeStyles = css`
-	background: ${({ theme: { colors } }) => colors.secondary};
-	color: ${({ theme: { colors } }) => colors.primary};
+	background: ${({ theme: { codeColors } }) => codeColors.background};
+	color: ${({ theme: { codeColors } }) => codeColors.text};
 	font-family: var(--fontCode);
-	padding: 0.4rem;
+	font-size: 0.85em;
+	padding: 0.3rem;
+	white-space: nowrap;
 `
 // EXTENDED TYPOGRAPHY STYLES
 export const P = styled.p`

@@ -3,14 +3,16 @@ import { ThemeProvider } from 'styled-components'
 import { themeDark, themeLight } from './styles/theme'
 import GlobalStyles from './styles/global.styles.jsx'
 import ReactMarkdown from 'react-markdown'
+import { Prism } from 'react-syntax-highlighter'
+import prismCustom from './styles/css/prismCustom.js'
 
 import axios from 'axios'
 
 import CIndex from './components/components.index.js'
-import { MyMarkdownStyles } from './MyMarkdownStyles.styles'
+import { MyMarkdownStyles } from './styles/MyMarkdownStyles.styles'
 
 function App() {
-	const [theme, setTheme] = useState('light')
+	const [theme, setTheme] = useState('dark')
 	const {
 		TComp: { P, H1, H2, Code, AuthorText },
 	} = CIndex
@@ -39,6 +41,9 @@ function App() {
 	const renderers = {
 		paragraph: P,
 		inlineCode: Code,
+		code: ({ language, value }) => (
+			<Prism style={prismCustom} language={language} children={value} />
+		),
 		heading: props =>
 			props.level === 1 ? (
 				<H1 {...props} />

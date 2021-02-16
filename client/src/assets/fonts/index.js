@@ -1,8 +1,7 @@
-import yuseiMagic from './yusei-magic/index'
-import oswald from './oswald/index'
-import montserrat from './montserrat/index'
+import oxygen from './oxygen/index'
+import cantarell from './cantarell/index'
 import firaCode from './fira-code/index'
 
-export const fontsIndex = { yuseiMagic, oswald, montserrat, firaCode }
+export const fontsIndex = { cantarell, firaCode, oxygen }
 
 export default fontsIndex
