@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import ReactMarkdown from 'react-markdown'
 import { Prism } from 'react-syntax-highlighter'
 import prismCustom from './prismCustom.js'
@@ -8,7 +8,7 @@ import { CIndex } from '../components.index.js'
 
 import { MyMarkdownStyles } from './MarkdownPost.styles'
 
-const MarkdownPost = () => {
+const MarkdownPost = ({ postId }) => {
 	const {
 		TComp: { P, H1, H2, Code, AuthorText },
 	} = CIndex
@@ -21,14 +21,13 @@ const MarkdownPost = () => {
 		_id: '',
 	})
 
-	const getData = e => {
-		const id = e.target.dataset.id
-		axios.get(`http://localhost:5000/doc?id=${id}`).then(res => {
+	useEffect(() => {
+		axios.get(`http://localhost:5000/doc?id=${postId}`).then(res => {
 			console.log(res)
 			const data = res.data.data
 			setMdData(data)
 		})
-	}
+	}, [mdData])
 
 	const renderers = {
 		paragraph: P,
@@ -63,9 +62,6 @@ const MarkdownPost = () => {
 			<MyMarkdownStyles>
 				<ReactMarkdown renderers={renderers} children={content} />
 			</MyMarkdownStyles>
-			<button data-id="602a01da82d4c8b3759b7c31" onClick={getData}>
-				Show markdown
-			</button>
 		</>
 	)
 }

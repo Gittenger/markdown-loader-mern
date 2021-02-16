@@ -1,4 +1,7 @@
-when client starts,
-perform getAll 
-return only metadata
-index the page/cards/tiles with metadata
+create links to post page
+pass id to post page for api call to get content on component load
+
+change getall to only return metadata, not content
+get content only on loading specific page. this will keep initial page loading time down
+
+on main page, change from click listener to Effect
