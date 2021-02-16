@@ -2,13 +2,13 @@ import typography from './typography/typography'
 import { cssIndex } from './css/utils.styles'
 
 const darkColors = {
-	primary: '#131111',
+	primary: '#1e2029',
 	secondary: '#f3e6e0',
 }
 
 const lightColors = {
 	primary: '#f3e6e0',
-	secondary: '#131111',
+	secondary: '#1e2029',
 }
 
 const codeColors = {

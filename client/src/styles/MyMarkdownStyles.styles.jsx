@@ -1,20 +1,33 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
-import { device } from './css/utils.styles.js'
-
-const sharedStyles = css`
-	p {
-		margin-left: 0.7rem;
-	}
-`
+import { device, cssIndex } from './css/utils.styles.js'
 
 export const MyMarkdownStyles = styled.div`
-	${sharedStyles}
+	width: 100%;
+	padding: 2.5rem 19vw;
 
-	padding: 2.5rem 35rem;
+	${device.laptopS} {
+		padding: 2.5rem 15vw;
+	}
+
+	${device.laptopXS} {
+		padding: 2.5rem 7vw;
+	}
 
 	${device.tabletLand} {
-		padding: 0;
+		padding: 2.5rem 3.5rem;
+	}
+
+	${device.tabletM} {
+		padding: 2.5rem 2rem 2.5rem 1.7rem;
+	}
+
+	p {
+		margin-left: 0.7rem;
+
+		${device.tabletLand} {
+			margin-left: 0;
+		}
 	}
 
 	p + h2 {
@@ -27,6 +40,9 @@ export const MyMarkdownStyles = styled.div`
 
 	pre {
 		margin-bottom: 4rem !important;
+		width: 98%;
+
+		${cssIndex.scrollBarStyles}
 	}
 
 	a:link,
