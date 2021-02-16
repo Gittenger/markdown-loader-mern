@@ -41,6 +41,12 @@ function App() {
 	const renderers = {
 		paragraph: P,
 		inlineCode: Code,
+		link: props =>
+			React.createElement(
+				'a',
+				{ target: '__blank', rel: 'noopener noreferrer', ...props },
+				props.children
+			),
 		code: ({ language, value }) => (
 			<Prism style={prismCustom} language={language} children={value} />
 		),

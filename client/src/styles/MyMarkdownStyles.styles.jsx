@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-// import { device } from './styles/css/utils.styles.js'
+import { device } from './css/utils.styles.js'
 
 const sharedStyles = css`
 	p {
@@ -13,6 +13,10 @@ export const MyMarkdownStyles = styled.div`
 
 	padding: 2.5rem 35rem;
 
+	${device.tabletLand} {
+		padding: 0;
+	}
+
 	p + h2 {
 		margin-top: 3.5rem;
 	}
@@ -23,5 +27,16 @@ export const MyMarkdownStyles = styled.div`
 
 	pre {
 		margin-bottom: 4rem !important;
+	}
+
+	a:link,
+	a:visited {
+		color: dodgerblue;
+		text-decoration: underline;
+		transition: color 0.3s;
+
+		&:hover {
+			color: midnightblue;
+		}
 	}
 `
