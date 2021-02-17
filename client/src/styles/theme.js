@@ -4,6 +4,7 @@ import { cssIndex } from './css/utils.styles'
 const darkColors = {
 	primary: '#1e2029',
 	secondary: '#f3e6e0',
+	primaryDark: '#15171d',
 }
 
 const lightColors = {

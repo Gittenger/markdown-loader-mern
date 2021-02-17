@@ -82,6 +82,7 @@ export const cssIndex = {
 
 		&::-webkit-scrollbar {
 			height: 7px;
+			width: 10px;
 			background-color: #1e2029;
 		}
 

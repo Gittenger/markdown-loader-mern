@@ -8,7 +8,7 @@ import { CIndex } from '../components.index.js'
 
 import { MyMarkdownStyles } from './MarkdownPost.styles'
 
-const MarkdownPost = ({ postId }) => {
+const MarkdownPost = ({ match: { params } }) => {
 	const {
 		TComp: { P, H1, H2, Code, AuthorText },
 	} = CIndex
@@ -22,12 +22,12 @@ const MarkdownPost = ({ postId }) => {
 	})
 
 	useEffect(() => {
-		axios.get(`http://localhost:5000/doc?id=${postId}`).then(res => {
+		axios.get(`http://localhost:5000/doc?id=${params.id}`).then(res => {
 			console.log(res)
 			const data = res.data.data
 			setMdData(data)
 		})
-	}, [mdData])
+	}, [])
 
 	const renderers = {
 		paragraph: P,
@@ -51,13 +51,11 @@ const MarkdownPost = ({ postId }) => {
 			),
 	}
 
-	const { content, title, excerpt, date, _id } = mdData
+	const { content, title, date } = mdData
 
 	return (
 		<>
 			<H1>{title}</H1>
-			<P>{_id}</P>
-			<P>{excerpt ? 'excerpt found' : ''}</P>
 			<AuthorText>{new Date(date).toDateString()}</AuthorText>
 			<MyMarkdownStyles>
 				<ReactMarkdown renderers={renderers} children={content} />

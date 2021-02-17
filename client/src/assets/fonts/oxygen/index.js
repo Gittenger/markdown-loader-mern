@@ -1,4 +1,5 @@
 import normal from './Oxygen-Regular.ttf'
+import light from './Oxygen-Light.ttf'
 
 export const oxygen = {
 	name: 'Oxygen',
@@ -8,6 +9,11 @@ export const oxygen = {
 			weight: '400',
 			style: 'normal',
 			font: normal,
+		},
+		light: {
+			weight: '200',
+			style: 'normal',
+			font: light,
 		},
 	},
 }

@@ -15,6 +15,8 @@ body {
     color:  ${({ theme: { colors } }) => colors.secondary};
 
     transition: background-color .3s, color .3s;
+
+    ${({ theme: { css } }) => css.scrollBarStyles}
 }
 
 #root {
