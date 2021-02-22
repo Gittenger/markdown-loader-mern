@@ -1,7 +1,6 @@
 const Markdown = require('../models/markdownSchema')
 
 exports.getFile = async (req, res) => {
-	// id coming from front-end
 	const id = req.query.id
 
 	const md = await Markdown.findById(id)
@@ -13,7 +12,7 @@ exports.getFile = async (req, res) => {
 }
 
 exports.getAll = async (req, res) => {
-	const mds = await Markdown.find()
+	const mds = await Markdown.find().select('title excerpt date')
 
 	res.status(200).json({
 		message: 'success',

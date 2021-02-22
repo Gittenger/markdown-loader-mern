@@ -15,18 +15,34 @@ const MarkdownPost = ({ match: { params } }) => {
 
 	const [mdData, setMdData] = useState({
 		content: '',
-		title: 'Not loaded yet',
-		date: 'July 20, 2010 00:10:11 GMT+00:00',
+		title: 'Loading',
+		date: '',
 		excerpt: '',
 		_id: '',
 	})
 
-	useEffect(() => {
-		axios.get(`http://localhost:5000/doc?id=${params.id}`).then(res => {
-			console.log(res)
-			const data = res.data.data
+	const getData = () => {
+		axios.get(`${process.env.REACT_APP_HOST}/doc?id=${params.id}`).then(res => {
+			const { data } = res.data
 			setMdData(data)
+			localStorage.setItem('blogPostData', JSON.stringify(data))
 		})
+	}
+
+	useEffect(() => {
+		const localStorageData = localStorage.getItem('blogPostData')
+
+		if (localStorageData) {
+			const parsed = JSON.parse(localStorageData)
+
+			if (parsed._id === params.id) {
+				setMdData(parsed)
+			} else {
+				getData()
+			}
+		} else {
+			getData()
+		}
 	}, [])
 
 	const renderers = {
@@ -55,8 +71,15 @@ const MarkdownPost = ({ match: { params } }) => {
 
 	return (
 		<>
-			<H1>{title}</H1>
-			<AuthorText>{new Date(date).toDateString()}</AuthorText>
+			{date ? (
+				<>
+					{' '}
+					<H1>{title}</H1>
+					<AuthorText>{new Date(date).toDateString()}</AuthorText>
+				</>
+			) : (
+				''
+			)}
 			<MyMarkdownStyles>
 				<ReactMarkdown renderers={renderers} children={content} />
 			</MyMarkdownStyles>

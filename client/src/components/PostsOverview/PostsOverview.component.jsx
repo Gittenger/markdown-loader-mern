@@ -14,10 +14,17 @@ const PostsOverview = () => {
 	const [posts, setPosts] = useState([])
 
 	useEffect(() => {
-		axios.get(`http://localhost:5000/docs`).then(res => {
-			console.log(res)
-			setPosts(res.data.data)
-		})
+		const localStorageData = localStorage.getItem('postsOverview')
+
+		if (localStorageData) {
+			setPosts(JSON.parse(localStorageData))
+		} else {
+			axios.get(`${process.env.REACT_APP_HOST}/docs`).then(res => {
+				const { data } = res.data
+				setPosts(data)
+				localStorage.setItem('postsOverview', JSON.stringify(data))
+			})
+		}
 	}, [])
 
 	return (
